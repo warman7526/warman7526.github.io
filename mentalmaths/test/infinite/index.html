@@ -8,9 +8,11 @@
         <link rel="stylesheet" href="../../style.css">
     </head>
     <body>
-        <h3 id="timer"></h3>
-        <div id="qslot">
+        <div id="container" class="center">
+            <h3 id="timer"></h3>
+            <div id="qslot">
 
+            </div>
         </div>
         <script>
             function choice(a){
@@ -20,7 +22,7 @@
                 return Math.floor(Math.random() * (max - min) ) + min;
             }
             ts = new URL(document.location.href).searchParams
-        qt = []
+        var qt = []
         p = ["A","D","M","S"]
         p.forEach(function(v,i){
             if(ts.has(v)) qt.push(v)
@@ -56,6 +58,7 @@
             if(aslot.value == ans.toString()) c++
             q++
             qslot.innerHTML = `<h3>Question ${q}</h3><h3>${c}/${q-1} Correct (${Math.round((q==1?1:c/(q-1))*10000)/100}%)</h3><h1>${Q()}</h1><input type="number" id="aslot"><button onclick="nextQ()" id="sub">Submit</button>`
+            tl = t/q
             aslot = document.querySelector("#aslot")
             sub = document.querySelector("#sub")
             aslot.onkeydown = function(e){
@@ -64,6 +67,7 @@
                     sub.click()
                 }
             }
+            aslot.focus()
         }
         function Q(){
             var m = choice(qt)
@@ -101,6 +105,10 @@
             s = Math.floor((t%6000)/100)
             m = Math.floor(t/6000)
             document.querySelector("#timer").innerHTML = `${m}m ${s}.${ms<10?'0'+ms:ms}s`
+            
+            ms = Math.floor(tl%100)
+            s = Math.floor(tl/100)
+            document.querySelector("#timer").innerHTML += ` (${s}.${ms<10?'0'+ms:ms}s per question)`
         },10)
     </script>
     </body>

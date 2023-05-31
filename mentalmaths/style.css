@@ -80,3 +80,17 @@ button.err {
     border: 2px solid #f32121;
     background: #fff;
 }
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#container {
+    padding: 8pt;
+    border: 1pt black solid;
+    border-radius: 4pt;
+}
