@@ -38,13 +38,17 @@
             <h3>Game Mode:</h3>
             <input type="radio" id="inf" name="gamemode" checked>Infinite
             <br />
+            <input type="radio" id="n-7" name="gamemode">7 Questions
+            <br />
             <input type="radio" id="n-20" name="gamemode">20 Questions
+            <br />
+            <input type="radio" id="n-55" name="gamemode">50 Questions
             <br />
             <input type="radio" id="n-100" name="gamemode">100 Questions
             <hr />
             <button class="err" id="start" onclick="start()">START</button>
             <hr />
-            <h6>v0.3.1b</h6>
+            <h6>v0.3.3</h6>
         </div>
         <script>
             var mode = ""
@@ -72,6 +76,8 @@
             var questions = 0;
             if(document.querySelector("#n-20").checked){isNormal = true; questions = 20;}
             else if(document.querySelector("#n-100").checked){isNormal = true; questions = 100;}
+            else if(document.querySelector("#n-7").checked){isNormal = true; questions = 7;}
+            else if(document.querySelector("#n-50").checked){isNormal = true; questions = 50;}
             console.log(questions)
             window.location.href=`./test/?${mode.toUpperCase().split("").join("&")}${document.querySelector("#inf").checked?"&I":""}${isNormal?"&q="+questions.toString():""}`
         }
