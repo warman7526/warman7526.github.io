@@ -8,7 +8,8 @@
         <link rel="stylesheet" href="../style.css">
     </head>
     <body>
-        <div id="container" class="center">
+        <h1 class="center" id="loading">Loading...</h1>
+        <div id="container" class="center" hidden>
             <h3 id="timer"></h3>
             <div id="qslot">
 
@@ -64,6 +65,20 @@
         
         console.log(ans)
         console.log(aslot.value)
+        if(aslot.value == ans.toString()) {c++
+            document.querySelector("#container").classList.add("correct")
+            rt = false
+            }else{
+                document.querySelector("#container").classList.add("incorrect")
+                qslot.innerHTML +="<br>Correct Answer :"+ans;
+                rt = false
+            }
+            
+            window.setTimeout(function(){
+            document.querySelector("#container").hidden = false
+            document.querySelector("#loading").hidden = true
+            document.querySelector("#container").classList.remove("correct")
+            document.querySelector("#container").classList.remove("incorrect")
         if(aslot.value == ans.toString()) c++
         q++
         qslot.innerHTML = `<h3>Question ${q}</h3><h3>${c}/${q-1} Correct (${Math.round((q==1?1:c/(q-1))*10000)/100}%)</h3><h1>${Q()}</h1><input type="number" id="aslot"><button onclick="nextQ()" id="sub">Submit</button>`
@@ -77,6 +92,7 @@
             }
         }
         aslot.focus()
+    })
     }
     function Q(){
         var m = choice(qt)
@@ -95,7 +111,7 @@
                 return `${n1}-${n2}`
             }
             case("D"):{
-                var n1 = randint(0,13)
+                var n1 = randint(1,13)
                 ans = randint(0,13)
                 var n2 = ans*n1
                 return `${n2}÷${n1}`
@@ -115,7 +131,8 @@
         }
     }
     window.setInterval(function(){
-        t+=1
+        if(rt)
+        {t+=1
         ms = Math.floor(t%100)
         s = Math.floor((t%6000)/100)
         m = Math.floor(t/6000)
@@ -123,8 +140,9 @@
         
         ms = Math.floor(tl%100)
         s = Math.floor(tl/100)
-        document.querySelector("#timer").innerHTML += ` (${s}.${ms<10?'0'+ms:ms}s per question)`
+        document.querySelector("#timer").innerHTML += ` (${s}.${ms<10?'0'+ms:ms}s per question)`}
     },10)
+
     </script>
     </body>
 </html>

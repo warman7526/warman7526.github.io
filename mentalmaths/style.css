@@ -94,3 +94,10 @@ button.err {
     border: 1pt black solid;
     border-radius: 4pt;
 }
+
+.correct{
+    color: #137e2a;
+}
+.incorrect{
+    color: #7c1414;
+}
