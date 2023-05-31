@@ -79,9 +79,9 @@
             document.querySelector("#loading").hidden = true
             document.querySelector("#container").classList.remove("correct")
             document.querySelector("#container").classList.remove("incorrect")
-        if(aslot.value == ans.toString()) c++
         q++
-        qslot.innerHTML = `<h3>Question ${q}</h3><h3>${c}/${q-1} Correct (${Math.round((q==1?1:c/(q-1))*10000)/100}%)</h3><h1>${Q()}</h1><input type="number" id="aslot"><button onclick="nextQ()" id="sub">Submit</button>`
+        rt = true;
+        qslot.innerHTML = `<h3>Question ${q}/${ts.get("q")}</h3><h3>${c}/${q-1} Correct (${Math.round((q==1?1:c/(q-1))*10000)/100}%)</h3><h1>${Q()}</h1><input type="number" id="aslot"><button onclick="nextQ()" id="sub">Submit</button>`
         tl = t/q
         aslot = document.querySelector("#aslot")
         sub = document.querySelector("#sub")
@@ -92,7 +92,7 @@
             }
         }
         aslot.focus()
-    })
+    },1000)
     }
     function Q(){
         var m = choice(qt)
