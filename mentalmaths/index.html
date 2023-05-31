@@ -29,6 +29,10 @@
             <input type="checkbox" id="div">
             <span class="slider round"></span>
         </label>Division<br />
+        <label class="switch">
+            <input type="checkbox" id="ind">
+            <span class="slider round"></span>
+        </label>Indecies<br />
         <br />
         <label class="switch">
             <input type="checkbox" id="inf">
@@ -44,6 +48,7 @@
                 if(document.getElementById("sub").checked) mode += "s"
                 if(document.getElementById("mul").checked) mode += "m"
                 if(document.getElementById("div").checked) mode += "d"
+                if(document.getElementById("ind").checked) mode += "n"
         
                 if(mode == ""){
                     document.getElementById("start").classList.add("err")

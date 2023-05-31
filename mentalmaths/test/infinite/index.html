@@ -23,7 +23,7 @@
             }
             ts = new URL(document.location.href).searchParams
         var qt = []
-        p = ["A","D","M","S"]
+        p = ["A","D","M","S","N"]
         p.forEach(function(v,i){
             if(ts.has(v)) qt.push(v)
         })
@@ -96,6 +96,12 @@
                     var n2 = randint(0,13)
                     ans = n1*n2
                     return `${n1}×${n2}`
+                }
+                case("N"):{
+                    var n1 = randint(0,11)
+                    var n2 = randint(2,4)
+                    ans = Math.pow(n1,n2)
+                    return `${n1}<sup>${n2}</sup>`
                 }
             }
         }
