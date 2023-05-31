@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MentalMaths</title>
+        <link rel="stylesheet" href="../../style.css">
+    </head>
+    <body>
+        <div id="container" class="center">
+            <h1>You completed:</h1>
+            <h3>
+                <span id="q">Q</span> questions in <br />
+                <span id="t">T</span> with <span id="p">P</span>% accuracy!
+            </h3>
+        </div>
+        <script>
+            ts = new URL(document.location.href).searchParams;
+            document.querySelector("#q").innerHTML = ts.get("q");
+            document.querySelector("#t").innerHTML = ts.get("t").replace("_"," ");
+            document.querySelector("#p").innerHTML = ts.get("p");
+        </script>
+    </body>
+</html>

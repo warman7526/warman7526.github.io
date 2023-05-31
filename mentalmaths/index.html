@@ -13,33 +13,37 @@
             <button close-modal
                 onclick="document.querySelector('[modal]').close()">OK</button>
         </dialog>
-        <label class="switch">
-            <input type="checkbox" id="add">
-            <span class="slider round"></span>
-        </label>Addition<br />
-        <label class="switch">
-            <input type="checkbox" id="sub">
-            <span class="slider round"></span>
-        </label>Subtraction<br />
-        <label class="switch">
-            <input type="checkbox" id="mul">
-            <span class="slider round"></span>
-        </label>Multiplication<br />
-        <label class="switch">
-            <input type="checkbox" id="div">
-            <span class="slider round"></span>
-        </label>Division<br />
-        <label class="switch">
-            <input type="checkbox" id="ind">
-            <span class="slider round"></span>
-        </label>Indecies<br />
-        <br />
-        <label class="switch">
-            <input type="checkbox" id="inf">
-            <span class="slider round"></span>
-        </label> Infinite Mode
-        <hr />
-        <button class="err" id="start" onclick="start()">START</button>
+        <div id="container" class="center">
+            <label class="switch">
+                <input type="checkbox" id="add">
+                <span class="slider round"></span>
+            </label>Addition<br /><br />
+            <label class="switch">
+                <input type="checkbox" id="sub">
+                <span class="slider round"></span>
+            </label>Subtraction<br /><br />
+            <label class="switch">
+                <input type="checkbox" id="mul">
+                <span class="slider round"></span>
+            </label>Multiplication<br /><br />
+            <label class="switch">
+                <input type="checkbox" id="div">
+                <span class="slider round"></span>
+            </label>Division<br /><br />
+            <label class="switch">
+                <input type="checkbox" id="ind">
+                <span class="slider round"></span>
+            </label>Indecies<br /><br />
+            <hr />
+            <h3>Game Mode:</h3>
+            <input type="radio" id="inf" name="gamemode">Infinite
+            <br />
+            <input type="radio" id="n-20" name="gamemode">20 Questions
+            <br />
+            <input type="radio" id="n-100" name="gamemode">100 Questions
+            <hr />
+            <button class="err" id="start" onclick="start()">START</button>
+        </div>
         <script>
             var mode = ""
             var validate = function(){
@@ -62,7 +66,12 @@
         if(mode==""){
         document.querySelector("[modal]").showModal()
         }else{
-            window.location.href=`./test/?${mode.toUpperCase().split("").join("&")}${document.querySelector("#inf").checked?'&I':''}`
+            var isNormal = false
+            var questions = 0;
+            if(document.querySelector("#n-20").checked){isNormal = true; questions = 20;}
+            else if(document.querySelector("#n-100").checked){isNormal = true; questions = 100;}
+            console.log(questions)
+            window.location.href=`./test/?${mode.toUpperCase().split("").join("&")}${document.querySelector("#inf").checked?"&I":""}${isNormal?"&q="+questions.toString():""}`
         }
     }
  </script>
