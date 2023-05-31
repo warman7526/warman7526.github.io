@@ -11,8 +11,9 @@
         <div id="container" class="center">
             <h1>You completed:</h1>
             <h3>
-                <span id="q">Q</span> questions in <br />
-                <span id="t">T</span> with <span id="p">P</span>% accuracy!
+                <span id="q">Q</span> questions in <span id="m">M</span> mode.<br />
+                You took <span id="t">T</span> with <span id="p">P</span>%
+                accuracy!
             </h3>
         </div>
         <script>
@@ -20,6 +21,7 @@
             document.querySelector("#q").innerHTML = ts.get("q");
             document.querySelector("#t").innerHTML = ts.get("t").replace("_"," ");
             document.querySelector("#p").innerHTML = ts.get("p");
+            document.querySelector("#p").innerHTML = ts.get("m");
         </script>
     </body>
 </html>

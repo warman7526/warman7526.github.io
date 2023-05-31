@@ -52,7 +52,7 @@
             ms = Math.floor(t%100)
             s = Math.floor((t%6000)/100)
             m = Math.floor(t/6000)
-            document.location.href=`finished/?q=${q}&t=${m}m_${s}.${ms}s&p=${Math.round((q==1?1:c/(q-1))*10000)/100}`
+            document.location.href=`finished/?q=${q}&t=${m}m_${s}.${ms}s&p=${Math.round((q==1?1:c/(q-1))*10000)/100}&m=normal`
         }
         aslot = document.querySelector("#aslot")
         sub = document.querySelector("#sub")

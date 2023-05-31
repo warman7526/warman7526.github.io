@@ -11,11 +11,19 @@
         <h1 class="center" id="loading">Loading...</h1>
         <div id="container" class="center" hidden>
             <h3 id="timer"></h3>
+            <br />
+            <button onclick="finish()">FINISH</button>
             <div id="qslot">
 
             </div>
+
         </div>
         <script>
+            function finish() {
+                t = document.querySelector("#timer").innerHTML
+                window.location.href = `.././finished/?q=${q}&t=${t.replace(" ","_")}&p=${Math.round((q==1?1:c/(q-1))*10000)/100}&m=infinite`
+            }
+
             function choice(a){
                 return a[randint(0,a.length)]
             }
@@ -73,7 +81,8 @@
             document.querySelector("#container").classList.remove("incorrect")
             rt = true
             q++
-            qslot.innerHTML = `<h3>Question ${q}}</h3><h3>${c}/${q-1} Correct (${Math.round((q==1?1:c/(q-1))*10000)/100}%)</h3><h1>${Q()}</h1><input type="number" id="aslot"><button onclick="nextQ()" id="sub">Submit</button>`
+            qslot.innerHTML = `<h3>Question ${q}
+            </h3><h3>${c}/${q-1} Correct (${Math.round((q==1?1:c/(q-1))*10000)/100}%)</h3><h1>${Q()}</h1><input type="number" id="aslot"><button onclick="nextQ()" id="sub">Submit</button>`
             tl = t/q
             aslot = document.querySelector("#aslot")
             sub = document.querySelector("#sub")
