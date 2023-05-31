@@ -57,7 +57,7 @@
         if(mode==""){
         document.querySelector("[modal]").showModal()
         }else{
-            window.location.href=`./test.html?${mode.toUpperCase().split("").join("&")}${document.querySelector("#inf").checked?'&I':''}`
+            window.location.href=`./test/?${mode.toUpperCase().split("").join("&")}${document.querySelector("#inf").checked?'&I':''}`
         }
     }
  </script>

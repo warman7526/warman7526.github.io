@@ -5,12 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="../style.css">
     </head>
     <body>
         <script>
         ts = new URL(document.location.href).searchParams
-        if(ts.has("I")) window.location.href = "./test_inf.html?"+ts.toString()
+        if(ts.has("I")) window.location.href = "./infinite/?"+ts.toString()
         q = []
         p = ["A","D","M","S"]
         p.forEach(function(v,i){
