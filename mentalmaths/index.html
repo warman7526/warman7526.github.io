@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MentalMaths</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <dialog modal>
+            <div>You must select at least one type of question.</div>
+            <button close-modal
+                onclick="document.querySelector('[modal]').close()">OK</button>
+        </dialog>
+        <label class="switch">
+            <input type="checkbox" id="add">
+            <span class="slider round"></span>
+        </label>Addition<br />
+        <label class="switch">
+            <input type="checkbox" id="sub">
+            <span class="slider round"></span>
+        </label>Subtraction<br />
+        <label class="switch">
+            <input type="checkbox" id="mul">
+            <span class="slider round"></span>
+        </label>Multiplication<br />
+        <label class="switch">
+            <input type="checkbox" id="div">
+            <span class="slider round"></span>
+        </label>Division<br />
+        <br />
+        <label class="switch">
+            <input type="checkbox" id="inf">
+            <span class="slider round"></span>
+        </label> Infinite Mode
+        <hr />
+        <button class="err" id="start" onclick="start()">START</button>
+        <script>
+            var mode = ""
+            var validate = function(){
+                mode = ""
+                if(document.getElementById("add").checked) mode += "a"
+                if(document.getElementById("sub").checked) mode += "s"
+                if(document.getElementById("mul").checked) mode += "m"
+                if(document.getElementById("div").checked) mode += "d"
+        
+                if(mode == ""){
+                    document.getElementById("start").classList.add("err")
+                }else{
+                    document.getElementById("start").classList.remove("err")
+                }
+                console.log(mode)
+            }
+    document.getElementsByTagName("html")[0].addEventListener("click",validate)
+    var start = function(){
+        if(mode==""){
+        document.querySelector("[modal]").showModal()
+        }else{
+            window.location.href=`./test.html?${mode.toUpperCase().split("").join("&")}${document.querySelector("#inf").checked?'&I':''}`
+        }
+    }
+ </script>
+    </body>
+</html>

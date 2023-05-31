@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h3 id="timer"></h3>
+        <div id="qslot">
+
+        </div>
+        <script>
+            function choice(a){
+                return a[randint(0,a.length)]
+            }
+            function randint(min, max) {
+                return Math.floor(Math.random() * (max - min) ) + min;
+            }
+            ts = new URL(document.location.href).searchParams
+        qt = []
+        p = ["A","D","M","S"]
+        p.forEach(function(v,i){
+            if(ts.has(v)) qt.push(v)
+        })
+        var q = 0;
+        var tonext = false;
+        var c = 0;
+        const qslot = document.querySelector("#qslot")
+        qslot.innerHTML = `<h3>Question ${q}</h3><h3>${c}/${q-1} Correct (${Math.round((q==1?1:c/(q-1))*10000)/100}%)</h3><h1>${Q()}</h1><input type="number" id="aslot"><button onclick="nextQ()" id="sub">Submit</button>`
+        var sub;
+        var aslot;
+        var ans=0;
+        var t =0;
+        nextQ()
+        aslot.onkeydown = function(e){
+            console.log(e.keyCode)
+            if(e.keyCode == 13){
+                sub.click()
+            }
+        }
+        function nextQ(){
+            aslot = document.querySelector("#aslot")
+            sub = document.querySelector("#sub")
+            aslot.onkeydown = function(e){
+                console.log(e.keyCode)
+                if(e.keyCode == 13){
+                    sub.click()
+                }
+            }
+            
+            console.log(ans)
+            console.log(aslot.value)
+            if(aslot.value == ans.toString()) c++
+            q++
+            qslot.innerHTML = `<h3>Question ${q}</h3><h3>${c}/${q-1} Correct (${Math.round((q==1?1:c/(q-1))*10000)/100}%)</h3><h1>${Q()}</h1><input type="number" id="aslot"><button onclick="nextQ()" id="sub">Submit</button>`
+            aslot = document.querySelector("#aslot")
+            sub = document.querySelector("#sub")
+            aslot.onkeydown = function(e){
+                console.log(e.keyCode)
+                if(e.keyCode == 13){
+                    sub.click()
+                }
+            }
+        }
+        function Q(){
+            var m = choice(qt)
+            console.log(m)
+            switch(m){
+                case("A"):{
+                    var n1 = randint(0,50)
+                    var n2 = randint(0,50)
+                    ans = n1 + n2
+                    return `${n1}+${n2}`
+                }
+                case("S"):{
+                    var n1 = randint(50,100)
+                    var n2 = randint(0,50)
+                    ans = n1-n2
+                    return `${n1}-${n2}`
+                }
+                case("D"):{
+                    var n1 = randint(0,13)
+                    ans = randint(0,13)
+                    var n2 = ans*n1
+                    return `${n2}÷${n1}`
+                }
+                case("M"):{
+                    var n1 = randint(0,13)
+                    var n2 = randint(0,13)
+                    ans = n1*n2
+                    return `${n1}×${n2}`
+                }
+            }
+        }
+        window.setInterval(function(){
+            t+=1
+            ms = Math.floor(t%100)
+            s = Math.floor((t%6000)/100)
+            m = Math.floor(t/6000)
+            document.querySelector("#timer").innerHTML = `${m}m ${s}.${ms<10?'0'+ms:ms}s`
+        },10)
+    </script>
+    </body>
+</html>

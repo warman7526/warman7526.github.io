@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <script>
+        ts = new URL(document.location.href).searchParams
+        if(ts.has("I")) window.location.href = "./test_inf.html?"+ts.toString()
+        q = []
+        p = ["A","D","M","S"]
+        p.forEach(function(v,i){
+            if(ts.has(v)) q.push(v)
+        })
+        console.log(q)
+    </script>
+    </body>
+</html>
