@@ -93,7 +93,7 @@ button.err {
     padding: 8pt;
     border: 1pt black solid;
     border-radius: 4pt;
-    background-color: paleturquoise;
+    background-color: #afeeee;
     overflow-y: auto;
     max-height: 90vh;
 }
@@ -108,4 +108,32 @@ button.err {
 
 body {
     background-color: rgb(238, 175, 221);
+}
+
+label>input[type="radio"] {
+    display: none;
+}
+
+label>input[type="radio"]+*::before {
+    content: "";
+    display: inline-block;
+    vertical-align: bottom;
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.3rem;
+    border-radius: 20%;
+    border-style: solid;
+    border-width: 0.1rem;
+    border-color: #cccccc;
+}
+
+label>input[type="radio"]:checked+*::before {
+    background-color: #2196F3;
+    border-color: #2196F3;
+    background-image: url("check.svg");
+    background-size: contain;
+}
+
+label>input[type="radio"]:checked+* {
+    color: #2196F3;
 }
