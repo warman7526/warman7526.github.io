@@ -21,7 +21,7 @@
             ts = new URL(document.location.href).searchParams;
             document.querySelector("#q").innerHTML = ts.get("q");
             document.querySelector("#m").innerHTML = ts.get("m");
-            if(ts.get("m")[0] = "t"){
+            if(ts.get("m")[0] == "t"){
             document.querySelector("#t").innerHTML = 'You took ' + ts.get("t");
             }
             document.querySelector("#p").innerHTML = ts.get("p");
