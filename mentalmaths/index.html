@@ -61,10 +61,16 @@
             <input type="radio" id="n-50" name="gamemode">50 Questions
             <br />
             <input type="radio" id="n-100" name="gamemode">100 Questions
+            <br />
+            <input type="radio" id="t-3" name="gamemode">Time Trial (3s)
+            <br />
+            <input type="radio" id="t-5" name="gamemode">Time Trial (5s)
+            <br />
+            <input type="radio" id="t-10" name="gamemode">Time Trial (10s)
             <hr />
             <button class="err" id="start" onclick="start()">START</button>
             <hr />
-            <h6>v0.4.1a</h6>
+            <small>v0.a_pre1</small>
         </div>
         <script>
             function turnAll(n){
@@ -101,8 +107,11 @@
                     else if(document.querySelector("#n-100").checked){isNormal = true; questions = 100;}
                     else if(document.querySelector("#n-7").checked){isNormal = true; questions = 7;}
                     else if(document.querySelector("#n-50").checked){isNormal = true; questions = 50;}
+                    else if(document.querySelector("#t-3").checked){isNormal = true; questions = 300;isTimed = true;}
+                    else if(document.querySelector("#t-5").checked){isNormal = true; questions = 500;isTimed = true;}
+                    else if(document.querySelector("#t-10").checked){isNormal = true; questions = 1000;isTimed = true;}
                     console.log(questions)
-                    window.location.href=`./test/?${mode.toUpperCase().split("").join("&")}${document.querySelector("#inf").checked?"&I":""}${isNormal?"&q="+questions.toString():""}`
+                    window.location.href=`./test/?${mode.toUpperCase().split("").join("&")}${document.querySelector("#inf").checked?"&I":""}${isTimed?"&T":""}${isNormal?"&q="+questions.toString():""}`
                 }
             }
         </script>

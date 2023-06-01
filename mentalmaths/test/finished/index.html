@@ -12,16 +12,20 @@
             <h1>You completed:</h1>
             <h3>
                 <span id="q">Q</span> questions in <span id="m">M</span> mode.<br />
-                You took <span id="t">T</span> with <span id="p">P</span>%
+                <span id="t">T</span> with <span id="p">P</span>%
                 accuracy!
             </h3>
+            <button onclick="window.location.href='../../'">BACK</button>
         </div>
         <script>
             ts = new URL(document.location.href).searchParams;
             document.querySelector("#q").innerHTML = ts.get("q");
-            document.querySelector("#t").innerHTML = ts.get("t").replace("_"," ");
-            document.querySelector("#p").innerHTML = ts.get("p");
             document.querySelector("#m").innerHTML = ts.get("m");
+            if(ts.get("m")[0] = "t"){
+            document.querySelector("#t").innerHTML = 'You took ' + ts.get("t");
+            }
+            document.querySelector("#p").innerHTML = ts.get("p");
+            
         </script>
     </body>
 </html>
