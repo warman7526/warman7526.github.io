@@ -11,8 +11,8 @@
         <div id="container" class="center">
             <h1>You completed:</h1>
             <h3>
-                <span id="q">Q</span> questions in <span id="m">M</span> mode.<br />
-                <span id="t">T</span> with <span id="p">P</span>%
+                <span id="q"></span> questions in <span id="m"></span> mode<br />
+                <span id="t"></span> with <span id="p"></span>%
                 accuracy!
             </h3>
             <button onclick="window.location.href='../../'">BACK</button>
@@ -21,7 +21,7 @@
             ts = new URL(document.location.href).searchParams;
             document.querySelector("#q").innerHTML = ts.get("q");
             document.querySelector("#m").innerHTML = ts.get("m");
-            if(ts.get("m").substring(0,1) == "t"){
+            if(ts.get("m").substring(0,1) != "t"){
             document.querySelector("#t").innerHTML = 'You took ' + ts.get("t");
             }
             document.querySelector("#p").innerHTML = ts.get("p");

@@ -17,8 +17,8 @@
         </div>
         <script>
         ts = new URL(document.location.href).searchParams
-        if(ts.has("I")) window.location.href = "./infinite/?"+ts.toString()
-        if(ts.has("T")) window.location.href = "./time_trial/?"+ts.toString()
+        if(ts.has("I")) window.location.href = "./infinite/index.html?"+ts.toString()
+        if(ts.has("T")) window.location.href = "./time_trial/index.html?"+ts.toString()
         function choice(a){
             return a[randint(0,a.length)]
         }

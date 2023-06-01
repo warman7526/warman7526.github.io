@@ -70,7 +70,7 @@
             <hr />
             <button class="err" id="start" onclick="start()">START</button>
             <hr />
-            <small>v0.b_pre0</small>
+            <small>v0.b_pre1</small>
         </div>
         <script>
             function turnAll(n){
@@ -111,7 +111,7 @@
                     else if(document.querySelector("#t-5").checked){isNormal = true; questions = 500;isTimed = true;}
                     else if(document.querySelector("#t-10").checked){isNormal = true; questions = 1000;isTimed = true;}
                     console.log(questions)
-                    window.location.href=`./test/?${mode.toUpperCase().split("").join("&")}${document.querySelector("#inf").checked?"&I":""}${isTimed?"&T":""}${isNormal?"&q="+questions.toString():""}`
+                    window.location.href=`./test/index.html?${mode.toUpperCase().split("").join("&")}${document.querySelector("#inf").checked?"&I":""}${isTimed?"&T":""}${isNormal?"&q="+questions.toString():""}`
                 }
             }
         </script>
