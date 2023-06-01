@@ -94,6 +94,8 @@ button.err {
     border: 1pt black solid;
     border-radius: 4pt;
     background-color: paleturquoise;
+    overflow-y: auto;
+    max-height: 90vh;
 }
 
 .correct {

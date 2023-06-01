@@ -15,6 +15,10 @@
         </dialog>
         <div id="container" class="center">
 
+            <button onclick="turnAll(true)">Select All</button>
+            <button onclick="turnAll(false)">Select None</button>
+            <br /><br />
+
             <label class="switch">
                 <input type="checkbox" id="add">
                 <span class="slider round"></span>
@@ -60,9 +64,17 @@
             <hr />
             <button class="err" id="start" onclick="start()">START</button>
             <hr />
-            <h6>v0.4.0</h6>
+            <h6>v0.4.1a</h6>
         </div>
         <script>
+            function turnAll(n){
+                document.getElementById("add").checked = n;
+                document.getElementById("sub").checked = n;
+                document.getElementById("mul").checked = n;
+                document.getElementById("div").checked = n;
+                document.getElementById("ind").checked = n;
+                document.getElementById("rt" ).checked = n;
+            }
             var mode = ""
             var validate = function(){
                 mode = ""
