@@ -40,7 +40,7 @@
     var ans=0;
     var t =ts.get("q");
     var m,s,ms;
-    var fin = false;
+    var w = -1
     nextQ()
     aslot.onkeydown = function(e){
         console.log(e.keyCode)
@@ -68,11 +68,11 @@
                 document.querySelector("#container").classList.add("incorrect")
                 qslot.innerHTML +="<br>Correct Answer :"+ans;
                 rt = false
-                fin = true
+                w ++
             }
             
             window.setTimeout(function(){
-                if(fin) document.location.href=`../finished/?q=${q}&p=${Math.round((q==1?1:c/(q-1))*10000)/100}&m=time trial (${ts.get("q")/100}s)`
+                if(w == 1) document.location.href=`../finished/?q=${q}&p=${Math.round((q==1?1:c/(q-1))*10000)/100}&m=time trial (${ts.get("q")/100}s)`
             document.querySelector("#container").hidden = false
             document.querySelector("#loading").hidden = true
             document.querySelector("#container").classList.remove("correct")
@@ -136,9 +136,9 @@
         m = Math.floor(t/6000)
         document.querySelector("#timer").innerHTML = `${m}m ${s}.${ms<10?'0'+ms:ms}s`
         }
-
-        if(t==0){
-            document.location.href=`../finished/?q=${q}&p=${Math.round((q==1?1:c/(q-1))*10000)/100}&m=time trial (${ts.get(t)/100}s)`
+        console.log(t)
+        if(t<0){
+            document.location.href=`../finished/?q=${q}&p=${Math.round((q==1?1:c/(q-1))*10000)/100}&m=time trial (${ts.get("q")/100}s)`
         }
 
     },10)
