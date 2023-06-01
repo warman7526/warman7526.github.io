@@ -137,6 +137,7 @@
         console.log(t)
         if(t<0){
             document.querySelector("#container").hidden = true
+            document.querySelector("#loading").hidden = true
             document.location.href=`../finished/index.html?q=${q}&p=${Math.round((q==1?1:c/(q-1))*10000)/100}&m=time trial (${ts.get("q")/100}s)`
         }
 
