@@ -14,27 +14,39 @@
                 onclick="document.querySelector('[modal]').close()">OK</button>
         </dialog>
         <div id="container" class="center">
+
             <label class="switch">
                 <input type="checkbox" id="add">
                 <span class="slider round"></span>
             </label>Addition<br /><br />
+
             <label class="switch">
                 <input type="checkbox" id="sub">
                 <span class="slider round"></span>
             </label>Subtraction<br /><br />
+
             <label class="switch">
                 <input type="checkbox" id="mul">
                 <span class="slider round"></span>
             </label>Multiplication<br /><br />
+
             <label class="switch">
                 <input type="checkbox" id="div">
                 <span class="slider round"></span>
             </label>Division<br /><br />
+
             <label class="switch">
                 <input type="checkbox" id="ind">
                 <span class="slider round"></span>
             </label>Indecies<br /><br />
+
+            <label class="switch">
+                <input type="checkbox" id="rt">
+                <span class="slider round"></span>
+            </label>Roots<br /><br />
+
             <hr />
+
             <h3>Game Mode:</h3>
             <input type="radio" id="inf" name="gamemode" checked>Infinite
             <br />
@@ -48,7 +60,7 @@
             <hr />
             <button class="err" id="start" onclick="start()">START</button>
             <hr />
-            <h6>v0.3.3b</h6>
+            <h6>v0.4.0</h6>
         </div>
         <script>
             var mode = ""
@@ -59,29 +71,28 @@
                 if(document.getElementById("mul").checked) mode += "m"
                 if(document.getElementById("div").checked) mode += "d"
                 if(document.getElementById("ind").checked) mode += "n"
+                if(document.getElementById("rt" ).checked) mode += "r"
         
-                if(mode == ""){
-                    document.getElementById("start").classList.add("err")
-                }else{
-                    document.getElementById("start").classList.remove("err")
+                if(mode == "") document.getElementById("start").classList.add("err") 
+                else           document.getElementById("start").classList.remove("err") 
+
                 }
-                console.log(mode)
+                document.getElementsByTagName("html")[0].addEventListener("click",validate)
+                var start = function(){
+                if(mode==""){
+                    document.querySelector("[modal]").showModal()
+                }
+                else{
+                    var isNormal = false
+                    var questions = 0;
+                    if(document.querySelector("#n-20").checked){isNormal = true; questions = 20;}
+                    else if(document.querySelector("#n-100").checked){isNormal = true; questions = 100;}
+                    else if(document.querySelector("#n-7").checked){isNormal = true; questions = 7;}
+                    else if(document.querySelector("#n-50").checked){isNormal = true; questions = 50;}
+                    console.log(questions)
+                    window.location.href=`./test/?${mode.toUpperCase().split("").join("&")}${document.querySelector("#inf").checked?"&I":""}${isNormal?"&q="+questions.toString():""}`
+                }
             }
-    document.getElementsByTagName("html")[0].addEventListener("click",validate)
-    var start = function(){
-        if(mode==""){
-        document.querySelector("[modal]").showModal()
-        }else{
-            var isNormal = false
-            var questions = 0;
-            if(document.querySelector("#n-20").checked){isNormal = true; questions = 20;}
-            else if(document.querySelector("#n-100").checked){isNormal = true; questions = 100;}
-            else if(document.querySelector("#n-7").checked){isNormal = true; questions = 7;}
-            else if(document.querySelector("#n-50").checked){isNormal = true; questions = 50;}
-            console.log(questions)
-            window.location.href=`./test/?${mode.toUpperCase().split("").join("&")}${document.querySelector("#inf").checked?"&I":""}${isNormal?"&q="+questions.toString():""}`
-        }
-    }
- </script>
+        </script>
     </body>
 </html>

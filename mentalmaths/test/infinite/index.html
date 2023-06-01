@@ -32,7 +32,7 @@
             }
             ts = new URL(document.location.href).searchParams
         var qt = []
-        p = ["A","D","M","S","N"]
+        p = ["A","D","M","S","N","R"]
         p.forEach(function(v,i){
             if(ts.has(v)) qt.push(v)
         })
@@ -128,6 +128,12 @@
                     var n2 = randint(2,4)
                     ans = Math.pow(n1,n2)
                     return `${n1}<sup>${n2}</sup>`
+                }
+                case("R"):{
+                    var n2 = randint(2,4)
+                    ans = randint(0,11)
+                    var n1 = Math.pow(ans,n2)
+                    return `<sup>${n2}</sup>√${n1}`
                 }
             }
         }

@@ -93,11 +93,17 @@ button.err {
     padding: 8pt;
     border: 1pt black solid;
     border-radius: 4pt;
+    background-color: paleturquoise;
 }
 
-.correct{
+.correct {
     color: #137e2a;
 }
-.incorrect{
+
+.incorrect {
     color: #7c1414;
+}
+
+body {
+    background-color: rgb(238, 175, 221);
 }
