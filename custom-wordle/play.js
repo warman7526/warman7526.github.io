@@ -87,7 +87,7 @@ function makeGuess(guess) {
 }
 
 document.addEventListener("keyup", function (e) {
-    if (guessNum == 5) {
+    if (guessNum == 6) {
         return
     }
     let pressedKey = String(e.key)
