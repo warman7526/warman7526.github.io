@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./play.css">
+    </head>
+    <body>
+        <h2>Custom Wordle!</h2>
+        <h4>Share your word with <a id="sharelink"></a></h4>
+        <dialog id="congrats">
+            <h2>Congratulations!</h2><h4>You Guessed The Word Correctly</h4><h4>It
+                took you <span id="guess"></span></h4>
+            <button onclick="window.location.href='./index.html'">BACK</button>
+        </dialog>
+        <div class="game-container">
+            <div class="grid"></div>
+
+        </div>
+        <script src="./play.js"></script>
+    </body>
+</html>

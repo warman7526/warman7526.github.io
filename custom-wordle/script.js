@@ -1,16 +1,24 @@
 inputBox = document.getElementById("word")
 validpattern = /\b[A-Z]+\b/gm
-shifts = [-4,14,-9,3,11]
-alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-makeInputUpper = function(i){i.value = i.value.toUpperCase()}
-function shifted(v){
-    var res = "";
-    for(var i = 0;i<5;i++){
-        var index = (alphabet.indexOf(v[i]) + shifts[i]) % 26
-        if(index < 0) index = index+26
-        console.log(index)
-        
-        res += alphabet[index]
+shifts = [-4, 14, -9, 3, 11]
+alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-!$^*@'~:;\\|"
+makeInputUpper = function (i) { i.value = i.value.toUpperCase() }
+function randint(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+function sendToGame() {
+    var word = inputBox.value;
+    var id = parseInt(word, 36).toString()
+    var obsid = "";
+    for (var i = 0; i < id.length; i++) {
+        var obs = "";
+        for (var o = 0; o < randint(5, 20); o++) {
+            obs += alphabet[randint(0, alphabet.length)]
+            console.log(obs)
+        }
+        console.log(obsid)
+        obsid += obs + id[i]
     }
-    return res
+    console.log(obsid)
+    window.location.href = "./play.html?wordid=" + obsid;
 }

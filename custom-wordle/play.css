@@ -1,0 +1,44 @@
+.cell {
+    width: 15vw;
+    height: 15vh;
+    font-size: 15vh;
+    margin: 2px 2px 2px 2px;
+    display: inline-block;
+    text-align: center;
+    border: 1px solid #666;
+    background-color: #ccc;
+
+}
+
+.cell.selected {
+    background-color: #ccf;
+}
+
+.row {
+    height: 15vh;
+    margin: auto;
+    width: 75vw+30px;
+}
+
+.grid {
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    margin: 0 0 0 -37.5%;
+}
+
+.game-container {
+    width: 100vw;
+}
+
+.cell.placed {
+    background-color: #6f6;
+}
+
+.cell.included {
+    background-color: #ff6;
+}
+
+.cell.incorrect {
+    background-color: #666;
+}
