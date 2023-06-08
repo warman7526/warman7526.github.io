@@ -1,9 +1,16 @@
 tu = new URL(window.location.href);
 ts = new URLSearchParams(tu.search);
 var wordid = ts.get("wordid")
-var word = parseInt(wordid.replace(/[^0-9]/g, "")).toString(36)
+var wordidnum = parseInt(wordid.split(/£/)[1].replace(/[^0-9]/g, ""))
+var wordidmult = parseInt(wordid.split(/£/)[0])
+var wordid = Math.round(wordidnum / wordidmult)
+var word = wordid.toString(36)
 document.querySelector("#sharelink").innerHTML = window.location.href
 document.querySelector("#sharelink").href = window.location.href
+document.querySelector("#sharelinkend").innerHTML = window.location.href
+document.querySelector("#sharelinkend").href = window.location.href
+document.querySelector("#sharelinkendbad").innerHTML = window.location.href
+document.querySelector("#sharelinkendbad").href = window.location.href
 var guessNum = 0;
 var entered = "";
 
@@ -44,6 +51,7 @@ function getResult(target, guess) {
         if (target[i] == guess[i]) {
             counted[target[i]] = counted[target[i]] ? counted[target[i]] + 1 : 1;
             res[i] = 2;
+            document.querySelector(`.key[onclick="pressKey('${guess[i].toUpperCase()}')"]`).classList.add("placed")
         }
     }
     console.log(`contained`, contained, `\ncounted=`, counted)
@@ -63,10 +71,13 @@ function getResult(target, guess) {
                         res[c] = 1;
                         console.log("CHOSEN", res[c], guess[c], guess[i])
                         my = true;
+                        document.querySelector(`.key[onclick="pressKey('${guess[c].toUpperCase()}')"]`).classList.add("included")
                     }
 
                 }
             }
+        } else {
+            document.querySelector(`.key[onclick="pressKey('${guess[i].toUpperCase()}')"]`).classList.add("incorrect")
         }
     }
     return res
@@ -83,14 +94,17 @@ function makeGuess(guess) {
     }
     if (!(score.includes(0) || score.includes(1))) {
         window.setTimeout(function () { document.querySelector("#congrats").showModal(); document.querySelector("#guess").innerHTML = `${guessNum} guess${guessNum != 1 ? "es" : ""}` }, 1000)
+    } else if (guessNum == 6) {
+        window.setTimeout(function () { document.querySelector("#uhoh").showModal(); document.querySelector("#word").innerHTML = `${word}` }, 1000)
     }
+
 }
 
-document.addEventListener("keyup", function (e) {
+document.addEventListener("keyup", (e) => pressKey(e.key))
+function pressKey(pressedKey) {
     if (guessNum == 6) {
         return
     }
-    let pressedKey = String(e.key)
     console.log(pressedKey)
     if (pressedKey === "Backspace" && entered.length > 0) {
         entered = entered.substring(0, entered.length - 1)
@@ -111,5 +125,5 @@ document.addEventListener("keyup", function (e) {
         entered += pressedKey
     }
     updateGrid(guessNum, entered)
-})
+}
 createGrid(word.length, 6)

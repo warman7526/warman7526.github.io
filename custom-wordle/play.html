@@ -12,13 +12,57 @@
         <h4>Share your word with <a id="sharelink"></a></h4>
         <dialog id="congrats">
             <h2>Congratulations!</h2><h4>You Guessed The Word Correctly</h4><h4>It
-                took you <span id="guess"></span></h4>
-            <button onclick="window.location.href='./index.html'">BACK</button>
-        </dialog>
-        <div class="game-container">
-            <div class="grid"></div>
+                took you <span id="guess"></span><h4>Share your word with this
+                    link: </h4><h4><a id="sharelinkend"></a></h4>
+                <button onclick="window.location.href='./index.html'">BACK</button>
+            </dialog>
+            <dialog id="uhoh">
+                <h2>Oh no!</h2><h4>You didn't get the word!</h4><h4>The word
+                    was :<span id="word"></span><h4>Share your word with this
+                        link:</h4><h4><a id="sharelinkendbad"></a></h4>
+                    <button onclick="window.location.href='./index.html'">BACK</button>
+                </dialog>
+                <div class="game-container">
+                    <div class="grid"></div>
 
-        </div>
-        <script src="./play.js"></script>
-    </body>
-</html>
+                </div>
+                <div class="keyboard">
+                    <div class="keyboard-row-top">
+                        <div class="key" onclick="pressKey('Q')">Q</div>
+                        <div class="key" onclick="pressKey('W')">W</div>
+                        <div class="key" onclick="pressKey('E')">E</div>
+                        <div class="key" onclick="pressKey('R')">R</div>
+                        <div class="key" onclick="pressKey('T')">T</div>
+                        <div class="key" onclick="pressKey('Y')">Y</div>
+                        <div class="key" onclick="pressKey('U')">U</div>
+                        <div class="key" onclick="pressKey('I')">I</div>
+                        <div class="key" onclick="pressKey('O')">O</div>
+                        <div class="key" onclick="pressKey('P')">P</div>
+                    </div>
+                    <div class="keyboard-row-middle">
+                        <div class="key" onclick="pressKey('A')">A</div>
+                        <div class="key" onclick="pressKey('S')">S</div>
+                        <div class="key" onclick="pressKey('D')">D</div>
+                        <div class="key" onclick="pressKey('F')">F</div>
+                        <div class="key" onclick="pressKey('G')">G</div>
+                        <div class="key" onclick="pressKey('H')">H</div>
+                        <div class="key" onclick="pressKey('J')">J</div>
+                        <div class="key" onclick="pressKey('K')">K</div>
+                        <div class="key" onclick="pressKey('L')">L</div>
+                    </div>
+                    <div class="keyboard-row-bottom">
+                        <div class="key wide"
+                            onclick="pressKey('Backspace')">Delete</div>
+                        <div class="key" onclick="pressKey('Z')">Z</div>
+                        <div class="key" onclick="pressKey('X')">X</div>
+                        <div class="key" onclick="pressKey('C')">C</div>
+                        <div class="key" onclick="pressKey('V')">V</div>
+                        <div class="key" onclick="pressKey('B')">B</div>
+                        <div class="key" onclick="pressKey('N')">N</div>
+                        <div class="key" onclick="pressKey('M')">M</div>
+                        <div class="key wide" onclick="pressKey('Enter')">Submit</div>
+                    </div>
+                </div>
+                <script src="./play.js"></script>
+            </body>
+        </html>

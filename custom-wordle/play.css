@@ -1,7 +1,7 @@
 .cell {
-    width: 15vw;
-    height: 15vh;
-    font-size: 15vh;
+    width: 12vh;
+    height: 12vh;
+    font-size: 12vh;
     margin: 2px 2px 2px 2px;
     display: inline-block;
     text-align: center;
@@ -10,35 +10,75 @@
 
 }
 
-.cell.selected {
+.selected {
     background-color: #ccf;
 }
 
 .row {
-    height: 15vh;
+    height: 12vh;
     margin: auto;
-    width: 75vw+30px;
+    width: calc(60vh + 30px);
 }
 
 .grid {
-    margin: auto;
     position: absolute;
     left: 50%;
-    margin: 0 0 0 -37.5%;
+    margin: 0 0 0 calc(-15px - 30vh);
 }
 
 .game-container {
     width: 100vw;
+    height: 80vh;
 }
 
-.cell.placed {
-    background-color: #6f6;
+.key {
+    width: 3vh;
+    height: 3vh;
+    font-size: 3vh;
+    text-align: center;
+    border: 1px solid #666;
+    background-color: #ccc;
+    cursor: pointer;
+    display: inline-block;
 }
 
-.cell.included {
+.key.wide {
+    width: 10vh;
+}
+
+.incorrect {
+    background-color: #666;
+}
+
+.included {
     background-color: #ff6;
 }
 
-.cell.incorrect {
-    background-color: #666;
+.placed {
+    background-color: #6f6;
+}
+
+.keyboard {
+    width: 100vw;
+}
+
+.keyboard-row-top {
+    position: absolute;
+    left: 50%;
+    top: auto;
+    transform: translate(-50%, -7vh);
+}
+
+.keyboard-row-middle {
+    position: absolute;
+    left: 50%;
+    top: auto;
+    transform: translate(-50%, -3vh);
+}
+
+.keyboard-row-bottom {
+    position: absolute;
+    left: 50%;
+    top: auto;
+    transform: translate(-50%, 1vh);
 }
