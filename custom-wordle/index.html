@@ -12,9 +12,9 @@
         <input type="password" id="word" placeholder="Enter Custom Word"
             maxlength="5"
             onkeyup="makeInputUpper(this);">
-        <button onclick="setRandWord()">CHOOSE RANDOM WORD!</button>
-        <hr />
         <button onclick="sendToGame()">PLAY</button>
+        <p>--OR--</p>
+        <button onclick="setRandWord();sendToGame()">PLAY WITH RANDOM WORD</button>
         <br />
         <script src="script.js"></script>
         <script src="words_5.js"></script>

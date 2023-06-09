@@ -13,15 +13,19 @@
         <dialog id="congrats">
             <h2>Congratulations!</h2><h4>You Guessed The Word Correctly</h4><h4>It
                 took you <span id="guess"></span><h4>Share your word with this
-                    link: </h4><h4><a id="sharelinkend"></a></h4>
+                    link: </h4><h4><a id="sharelinkend"></a></h4><h4><a
+                        id="score"></a></h4>
                 <button onclick="window.location.href='./index.html'">BACK</button>
             </dialog>
             <dialog id="uhoh">
                 <h2>Oh no!</h2><h4>You didn't get the word!</h4><h4>The word
                     was :<span id="word"></span><h4>Share your word with this
-                        link:</h4><h4><a id="sharelinkendbad"></a></h4>
+                        link:</h4><h4><a id="sharelinkendbad"></a><h4><a
+                                id="scorebad"></a></h4></h4>
                     <button onclick="window.location.href='./index.html'">BACK</button>
                 </dialog>
+                <dialog id="invalid">Word does not exist in library.</dialog>
+                <dialog id="short">Word must be 5 letters long.</dialog>
                 <div class="game-container">
                     <div class="grid"></div>
 
@@ -64,5 +68,6 @@
                     </div>
                 </div>
                 <script src="./play.js"></script>
+                <script src="./words_5.js"></script>
             </body>
         </html>

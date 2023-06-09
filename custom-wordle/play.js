@@ -5,6 +5,7 @@ var wordidnum = parseInt(wordid.split(/£/)[1].replace(/[^0-9]/g, ""))
 var wordidmult = parseInt(wordid.split(/£/)[0])
 var wordid = Math.round(wordidnum / wordidmult)
 var word = wordid.toString(36)
+var scoreText = "";
 document.querySelector("#sharelink").innerHTML = window.location.href
 document.querySelector("#sharelink").href = window.location.href
 document.querySelector("#sharelinkend").innerHTML = window.location.href
@@ -84,7 +85,13 @@ function getResult(target, guess) {
 }
 
 function makeGuess(guess) {
+    if (!words.includes(guess)) { document.querySelector("dialog#invalid").showModal(); window.setTimeout(function () { document.querySelector('dialog#invalid').close() }, 1000); return; }
+
+
     var score = getResult(word, guess);
+    scoreText += score.join(" ").replace(/2/g, "🟩").replace(/1/g, "🟨").replace(/0/g, "⬛️") + "<br/>"
+    document.querySelector("#score").innerHTML = scoreText
+    document.querySelector("#scorebad").href = scoreText
     var cells = updateGrid(guessNum, guess);
     var classKey = ["incorrect", "included", "placed"]
     guessNum++;
@@ -94,6 +101,7 @@ function makeGuess(guess) {
     }
     if (!(score.includes(0) || score.includes(1))) {
         window.setTimeout(function () { document.querySelector("#congrats").showModal(); document.querySelector("#guess").innerHTML = `${guessNum} guess${guessNum != 1 ? "es" : ""}` }, 1000)
+
     } else if (guessNum == 6) {
         window.setTimeout(function () { document.querySelector("#uhoh").showModal(); document.querySelector("#word").innerHTML = `${word}` }, 1000)
     }
@@ -112,8 +120,12 @@ function pressKey(pressedKey) {
         return
     }
 
-    else if (pressedKey === "Enter" && entered.length == 5) {
-        makeGuess(entered)
+    else if (pressedKey === "Enter") {
+        if (entered.length == 5) {
+            makeGuess(entered)
+        } else {
+            if (!words.includes(guess)) { document.querySelector("dialog#short").showModal(); window.setTimeout(function () { document.querySelector('dialog#short').close() }, 1000); }
+        }
         entered = ""
         updateGrid(guessNum, entered)
     }
@@ -126,4 +138,6 @@ function pressKey(pressedKey) {
     }
     updateGrid(guessNum, entered)
 }
+
+
 createGrid(word.length, 6)
