@@ -85,7 +85,7 @@ function getResult(target, guess) {
 }
 
 function makeGuess(guess) {
-    if (!words.includes(guess)) { document.querySelector("dialog#invalid").showModal(); window.setTimeout(function () { document.querySelector('dialog#invalid').close() }, 1000); return; }
+    if (!words.includes(guess) && guess != word) { document.querySelector("dialog#invalid").showModal(); window.setTimeout(function () { document.querySelector('dialog#invalid').close() }, 1000); return; }
 
 
     var score = getResult(word, guess);
