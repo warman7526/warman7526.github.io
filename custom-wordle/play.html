@@ -8,8 +8,9 @@
         <link rel="stylesheet" href="./play.css">
     </head>
     <body>
-        <h2>Custom Wordle!</h2>
-        <h4>Share your word with <a id="sharelink"></a></h4>
+        <div class="bgcredits nohover full-w">
+            <h3>Custom Wordle!</h3>
+            <h5>Share your word with <br><br><a id="sharelink" class="bgcredits"></a></h5></div>
         <dialog id="congrats">
             <h2>Congratulations!</h2><h4>You Guessed The Word Correctly</h4><h4>It
                 took you <span id="guess"></span><h4>Share your word with this
@@ -27,7 +28,7 @@
                 <dialog id="invalid">Word does not exist in library.</dialog>
                 <dialog id="short">Word must be 5 letters long.</dialog>
                 <div class="game-container">
-                    <div class="grid"></div>
+                    <div class="grid bgcredits nohover"></div>
 
                 </div>
                 <div class="keyboard">

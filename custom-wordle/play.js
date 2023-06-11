@@ -5,6 +5,7 @@ var wordidnum = parseInt(wordid.split(/£/)[1].replace(/[^0-9]/g, ""))
 var wordidmult = parseInt(wordid.split(/£/)[0])
 var wordid = Math.round(wordidnum / wordidmult)
 var word = wordid.toString(36)
+
 var scoreText = "";
 document.querySelector("#sharelink").innerHTML = window.location.href
 document.querySelector("#sharelink").href = window.location.href
@@ -139,5 +140,37 @@ function pressKey(pressedKey) {
     updateGrid(guessNum, entered)
 }
 
+function randint(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+function choice(a) {
+    return a[randint(0, a.length)]
+}
 
 createGrid(word.length, 6)
+
+function getDate() {
+    const months = "JanFebMarAprMayJunJulAugSepOctNovDec"
+    const d = new Date();
+    var day = d.getDate().toString();
+    var month = months.substring(d.getMonth() * 3, (d.getMonth() + 1) * 3)
+    return (day.length == 1 ? "0" : "") + day + month;
+}
+function setTheme(d) {
+    var specials = {
+        "27Jun": "fireworks",
+        "24Dec": "xmas",
+        "25Dec": "xmas",
+        "26Dec": "xmas",
+        "01Jan": "fireworks",
+        "31Dec": "fireworks"
+    }
+    if (!Object.keys(specials).includes(d)) {
+        document.querySelector("body").id = "";
+        document.querySelector("body").setAttribute("i", randint(1, 8)); document.querySelector("body").innerHTML += "<span class='bgcredits' onclick='window.open(`https://www.youtube.com/@hypermind15`,`_blank`)'>Background © Hypermind 2023</span>"
+    } else {
+        document.querySelector("body").id = specials[d];
+
+    }
+}
+setTheme(getDate())

@@ -5,17 +5,33 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
         <title>replit</title>
-        <link href="style.css" rel="stylesheet" type="text/css" />
+        <link href="index.css" rel="stylesheet" type="text/css" />
     </head>
-
     <body>
-        <input type="password" id="word" placeholder="Enter Custom Word"
-            maxlength="5"
-            onkeyup="makeInputUpper(this);">
-        <button onclick="sendToGame()">PLAY</button>
-        <p>--OR--</p>
-        <button onclick="setRandWord();sendToGame()">PLAY WITH RANDOM WORD</button>
-        <br />
+        <div class="center-items ci-parent full">
+            <div id="menu" class="center-items-include ci-child signup-form-box">
+                <br>
+                <hr>
+                <br>
+                <input class="bgcredits" type="text" id="word"
+                    placeholder="Enter Custom Word"
+                    maxlength="5"
+                    onkeyup="makeInputUpper(this);inputBox = this;">
+                <br>
+                <span class="bgcredits" onclick="sendToGame()">PLAY</span>
+                <br>
+                <hr>
+                <p>OR</p>
+                <hr>
+                <br>
+                <span class="bgcredits" onclick="setRandWord();sendToGame()">PLAY
+                    WITH RANDOM
+                    WORD</span>
+                <br>
+                <hr>
+                <br>
+            </div>
+        </div>
         <script src="script.js"></script>
         <script src="words_5.js"></script>
     </body>

@@ -1,12 +1,12 @@
 .cell {
-    width: 12vh;
-    height: 12vh;
-    font-size: 12vh;
+    width: 10vh;
+    height: 10vh;
+    font-size: 10vh;
     margin: 2px 2px 2px 2px;
     display: inline-block;
     text-align: center;
-    border: 1px solid #666;
-    background-color: #ccc;
+    border: 1px solid rgba(102, 102, 102, 0.75);
+    background-color: rgb(204, 204, 204, 0.75);
 
 }
 
@@ -15,20 +15,19 @@
 }
 
 .row {
-    height: 12vh;
-    margin: auto;
-    width: calc(60vh + 30px);
+    height: calc(10vh+2px);
+    width: calc(50vh + 30px);
 }
 
 .grid {
     position: absolute;
     left: 50%;
-    margin: 0 0 0 calc(-15px - 30vh);
+    margin: 0 0 0 calc(-12px - 25vh);
 }
 
 .game-container {
     width: 100vw;
-    height: 80vh;
+    height: 75vh;
 }
 
 .key {
@@ -36,8 +35,8 @@
     height: 3vh;
     font-size: 3vh;
     text-align: center;
-    border: 1px solid #666;
-    background-color: #ccc;
+    border: 1px solid rgba(102, 102, 102, 0.75);
+    background-color: rgb(204, 204, 204, 0.75);
     cursor: pointer;
     display: inline-block;
 }
@@ -47,19 +46,20 @@
 }
 
 .incorrect {
-    background-color: #666;
+    background-color: rgb(102, 102, 102, 0.75);
 }
 
 .included {
-    background-color: #ff6;
+    background-color: rgba(255, 227, 102, 0.75);
 }
 
 .placed {
-    background-color: #6f6;
+    background-color: rgba(102, 255, 102, 0.75);
 }
 
 .keyboard {
     width: 100vw;
+
 }
 
 .keyboard-row-top {
@@ -67,6 +67,7 @@
     left: 50%;
     top: auto;
     transform: translate(-50%, -7vh);
+    background-color: rgba(0, 0, 0, 0.238);
 }
 
 .keyboard-row-middle {
@@ -74,6 +75,7 @@
     left: 50%;
     top: auto;
     transform: translate(-50%, -3vh);
+    background-color: rgba(0, 0, 0, 0.238);
 }
 
 .keyboard-row-bottom {
@@ -81,4 +83,133 @@
     left: 50%;
     top: auto;
     transform: translate(-50%, 1vh);
+    background-color: rgba(0, 0, 0, 0.238);
+}
+
+/* theme backgrounds */
+[i="0"] {
+    background-image: url(images/bg0.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 100vh;
+}
+
+[i="1"] {
+    background-image: url(images/bg1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 100vh;
+}
+
+[i="2"] {
+    background-image: url(images/bg2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 100vh;
+}
+
+[i="3"] {
+    background-image: url(images/bg3.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 100vh;
+}
+
+[i="4"] {
+    background-image: url(images/bg4.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 100vh;
+}
+
+[i="5"] {
+    background-image: url(images/bg5.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 100vh;
+}
+
+[i="6"] {
+    background-image: url(images/bg6.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 100vh;
+}
+
+[i="7"] {
+    background-image: url(images/bg7.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 100vh;
+}
+
+[i="8"] {
+    background-image: url(images/bg8.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 100vh;
+}
+
+[i="9"] {
+    background-image: url(images/bg9.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+body {
+    color: #fff;
+    overflow: hidden;
+
+}
+
+body#xmas {
+    background-image: url(images/xmas.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 100vh;
+}
+
+body#fireworks {
+    background-image: url(images/fireworks.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 100vh;
+}
+
+.bgcredits {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.238);
+    padding: 5px;
+    border-radius: 5px;
+    backdrop-filter: blur(3.5px);
+    border: 1px solid #ffffff00;
+    width: fit-content;
+}
+
+
+.bgcredits:hover:not(.nohover) {
+    backdrop-filter: blur(3.55px);
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+
+.bgcredits.full-w {
+    width: calc(100vw - 25px)
+}
+
+.cell {
+    border-radius: 5px;
+    margin-bottom: 2px;
 }
