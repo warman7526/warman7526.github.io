@@ -1,103 +1,5 @@
 /* theme backgrounds */
-[i="0"] {
-    background-image: url(images/bg0.png);
-    background-repeat: no-repeat;
-    background-size: cover;
 
-    height: 100vh;
-}
-
-[i="1"] {
-    background-image: url(images/bg1.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    height: 100vh;
-}
-
-[i="2"] {
-    background-image: url(images/bg2.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    height: 100vh;
-}
-
-[i="3"] {
-    background-image: url(images/bg3.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    height: 100vh;
-}
-
-[i="4"] {
-    background-image: url(images/bg4.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    height: 100vh;
-}
-
-[i="5"] {
-    background-image: url(images/bg5.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    height: 100vh;
-}
-
-[i="6"] {
-    background-image: url(images/bg6.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    height: 100vh;
-}
-
-[i="7"] {
-    background-image: url(images/bg7.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    height: 100vh;
-}
-
-[i="8"] {
-    background-image: url(images/bg8.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    height: 100vh;
-}
-
-[i="9"] {
-    background-image: url(images/bg9.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-}
-
-body {
-    color: #fff;
-    ;
-}
-
-body#xmas {
-    background-image: url(images/xmas.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    height: 100vh;
-}
-
-body#fireworks {
-    background-image: url(images/fireworks.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    height: 100vh;
-}
 
 
 .center-items.ci-parent {
@@ -129,20 +31,20 @@ body#fireworks {
     width: 400px;
     height: calc(auto + 25px);
     background-color: rgba(0, 0, 0, 0.24);
-    backdrop-filter: blur(2px);
-    border-radius: 5%;
+    backdrop-filter: blur(2.35px);
+    border-radius: 15px;
 }
 
 .sub-signup-form-box {
     width: 250px;
     background-color: rgba(0, 0, 0, 0.24);
-    backdrop-filter: blur(3.5px);
+    backdrop-filter: blur(3.5px) saturate(0.5);
     border-radius: 5%;
 }
 
 .signup-form-box:hover {
 
-    backdrop-filter: blur(3.55px);
+    backdrop-filter: blur(2.95px) saturate(1.25);
 }
 
 .signup-form-box>* {
@@ -158,12 +60,25 @@ body#fireworks {
     cursor: pointer;
     padding: 5px;
     border-radius: 5px;
-    backdrop-filter: blur(3.5px);
+    backdrop-filter: blur(0.2px);
     border: 1px solid #ffffff00;
     width: fit-content;
 }
 
 .bgcredits:hover {
-    backdrop-filter: blur(3.55px);
+    backdrop-filter: blur(3.55px) saturate(0.5);
     border: 1px solid #fff;
+}
+
+body#taytay {
+    background-image: url(images/taytay.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    height: 100vh;
+}
+
+hr {
+    border: 1px solid #fff;
+    width: 370px;
 }

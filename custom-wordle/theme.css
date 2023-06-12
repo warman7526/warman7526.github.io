@@ -1,0 +1,60 @@
+[i="0"] {
+    background-image: url(images/bg0.png);
+}
+
+[i="1"] {
+    background-image: url(images/bg1.png);
+}
+
+[i="2"] {
+    background-image: url(images/bg2.png);
+}
+
+[i="3"] {
+    background-image: url(images/bg3.png);
+}
+
+[i="4"] {
+    background-image: url(images/bg4.png);
+}
+
+[i="5"] {
+    background-image: url(images/bg5.png);
+}
+
+[i="6"] {
+    background-image: url(images/bg6.png);
+}
+
+[i="7"] {
+    background-image: url(images/bg7.png);
+}
+
+[i="8"] {
+    background-image: url(images/bg8.png);
+}
+
+[i="9"] {
+    background-image: url(images/bg9.png);
+}
+
+body#xmas {
+    background-image: url(images/xmas.png);
+}
+
+body#fireworks {
+    background-image: url(images/fireworks.png);
+}
+
+body#taytay {
+    background-image: url(images/taytay.png);
+}
+
+
+body {
+    color: #fff;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    background-position: center center;
+}
