@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6678138025809339" crossorigin="anonymous"></script>
+        <script async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6678138025809339"
+            crossorigin="anonymous"></script>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,15 +19,17 @@
             <h2>Congratulations!</h2><h4>You Guessed The Word Correctly</h4><h4>It
                 took you <span id="guess"></span><h4>Share your word with this
                     link: </h4><h4><a id="sharelinkend"></a></h4><h4><a
-                        id="score"></a></h4>
-                <button onclick="window.location.href='./index.html'">BACK</button><button onclick="window.location.href='https://www.dictionary.com/browse/'+word">DEFENITION</button>
+                        id="score"></a></h4><br><h3>Definition</h3><span
+                    id="defWon"></span>
+                <button onclick="window.location.href='./index.html'">BACK</button>
             </dialog>
             <dialog id="uhoh">
                 <h2>Oh no!</h2><h4>You didn't get the word!</h4><h4>The word
                     was :<span id="word"></span><h4>Share your word with this
                         link:</h4><h4><a id="sharelinkendbad"></a><h4><a
-                                id="scorebad"></a></h4></h4>
-                    <button onclick="window.location.href='./index.html'">BACK</button><button onclick="window.location.href='https://www.dictionary.com/browse/'+word">DEFENITION</button>
+                                id="scorebad"></a></h4></h4><h3>Definition</h3><span
+                        id="defLost"></span>
+                    <button onclick="window.location.href='./index.html'">BACK</button>
                 </dialog>
                 <dialog id="invalid">Word does not exist in library.</dialog>
                 <dialog id="short">Word must be 5 letters long.</dialog>

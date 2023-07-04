@@ -27,7 +27,7 @@ function sendToGame() {
 }
 
 function setRandWord() {
-    inputBox.value = choice(words)
+    inputBox.value = choice(valid_words)
 }
 
 function getDate() {

@@ -5,6 +5,7 @@ var wordidnum = parseInt(wordid.split(/£/)[1].replace(/[^0-9]/g, ""))
 var wordidmult = parseInt(wordid.split(/£/)[0])
 var wordid = Math.round(wordidnum / wordidmult)
 var word = wordid.toString(36)
+var wordDef = httpGetDef(word)
 
 var scoreText = "";
 document.querySelector("#sharelink").innerHTML = window.location.href
@@ -13,6 +14,8 @@ document.querySelector("#sharelinkend").innerHTML = window.location.href
 document.querySelector("#sharelinkend").href = window.location.href
 document.querySelector("#sharelinkendbad").innerHTML = window.location.href
 document.querySelector("#sharelinkendbad").href = window.location.href
+document.querySelector("#defWon").innerHTML = wordDef
+document.querySelector("#defLost").innerHTML = wordDef
 var guessNum = 0;
 var entered = "";
 
@@ -148,4 +151,32 @@ function choice(a) {
 }
 
 createGrid(word.length, 6)
+
+function httpGetDef(w) {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open("GET", "https://api.dictionaryapi.dev/api/v2/entries/en/" + w, false); // false for synchronous request
+    xmlHttp.send(null);
+    var def = JSON.parse(xmlHttp.responseText);
+    console.log(def)
+    try {
+        var defs = def[0].meanings;
+        var res = ""
+        for (var i = 0; i < defs.length; i++) {
+            var def = defs[i]
+            var posDefs = def.definitions
+            res += `<h5><u>${def.partOfSpeech}</u></h5><ol>`
+            for (var j = 0; j < posDefs.length; j++) {
+                res += `<li>${posDefs[j].definition}</li>`
+            }
+            res += `</ol>`
+                + (def.synonyms.length != 0 ? `<p><b>Synonyms </b>${def.synonyms.join(" ")}</p>` : "")
+                + (def.antonyms.length != 0 ? `<p><b>Antonyms </b>${def.antonyms.join(" ")}</p>` : "")
+        }
+        return res;
+    } catch (e) {
+        return "<h4>Unable to find definition.</h4>"
+    }
+
+
+}
 
