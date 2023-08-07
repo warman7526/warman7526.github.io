@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="menu.css">
+        <title>Hangman - Main Menu</title>
+    </head>
+    <body>
+        <div class="menu-container">
+            <button
+                onclick="innerHTML = q('#input').classList.toggle('mask-input')?'Show Input':'Hide Input'"
+                id="hideInput">Hide
+                Input</button>
+
+            <br>
+            <input type="input" id="input"
+                onkeyup="this.value = this.value.replace(/[^A-Za-z '-]/gm,'')"
+                autocomplete="off" />
+            <br>
+            <button onclick="sendToGame(q('#input').value.toUpperCase())">GO!</button>
+        </div>
+        <script src="./menu.js"></script>
+    </body>
+</html>

@@ -1,0 +1,79 @@
+body {
+    display: grid;
+    margin: 0 0 0 0;
+    grid-template-columns: 30vw 70vw;
+    grid-template-rows: min(50vh, 30vw) calc(100vh - min(50vh, 30vw));
+    grid-template-areas: "image phrase" "info keyboard"
+}
+
+#phrase {
+    grid-area: phrase;
+    overflow-y: scroll;
+}
+
+#image {
+    grid-area: image;
+}
+
+#keyboard {
+    grid-area: keyboard;
+}
+
+#info {
+    grid-area: info;
+    overflow-y: scroll;
+}
+
+.bubble {
+    display: inline-block;
+    outline: 3px black solid;
+    width: 5vw;
+    height: 5vw;
+    font-size: 4vw;
+    text-align: center;
+    margin: 1vw 1vw 1vw 1vw;
+}
+
+.keyboard-row {
+    height: 18%;
+}
+
+dialog,
+dialog>* {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 3pt;
+    backdrop-filter: blur(5px);
+    margin: auto;
+}
+
+.keyboard-row>button {
+    display: inline-block;
+    outline: 3px black solid;
+    aspect-ratio: 1;
+    height: 6vh;
+    font-size: 100%;
+    text-align: center;
+    margin: 1vw 1vw 1vw 1vw;
+    background: white;
+}
+
+.keyboard-row>button.guessed {
+    outline: 3px gray solid;
+    color: gray;
+}
+
+.keyboard-row>button:hover {
+    outline: 3px blue solid;
+    font-size: 100%;
+    color: blue;
+}
+
+.keyboard-row>button.guessed:hover {
+    outline: 3px red solid;
+    color: red;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,74 @@
+@font-face {
+    font-family: 'password';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://jsbin-user-assets.s3.amazonaws.com/rafaelcastrocouto/password.ttf);
+}
+
+
+
+
+#input {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 17pt;
+    height: 20pt;
+    width: 300pt;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+}
+
+#input:hover {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 17pt;
+    height: 20pt;
+    width: 320pt;
+}
+
+#input.mask-input {
+    font-family: "password";
+}
+
+body {
+
+    height: 100vh;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    justify-content: space-evenly;
+    align-content: center;
+    margin: 0 0 0 0;
+
+    background: linear-gradient(to bottom right, hsl(0, 100%, 71%), hsl(240, 100%, 71%));
+}
+
+.menu-container {
+    grid-area: 2/2/2/2;
+    border-radius: 3pt;
+    border: 1px black solid;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 350pt;
+}
+
+.menu-container>* {
+    margin: 3pt;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 3pt;
+}
+
+dialog,
+dialog>* {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 3pt;
+    backdrop-filter: blur(100000px);
+    margin: auto;
+}
+
+#hideInput {
+    width: 150pt;
+}
+
+#hideInput:hover {
+    width: 170pt;
+}
