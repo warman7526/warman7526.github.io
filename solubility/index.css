@@ -1,0 +1,66 @@
+#head {
+    height: 10vh
+}
+
+#question {
+    height: 40vh;
+}
+
+#buttons {
+    height: 50vh
+}
+
+body {
+    margin: 0 0 0 0;
+    overflow: hidden;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.button {
+    height: 25vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 7vh;
+    transition: all .5s;
+    cursor: pointer;
+}
+
+
+
+
+h3,
+h4,
+h1,
+h2,
+p {
+    margin: 0 0 0 0;
+    width: 100%;
+    text-align: center;
+    border: 1px black solid;
+    transition: all .7s ease-in-out;
+
+}
+
+@media screen and (min-width: 768px) {
+
+    h3:hover,
+    h4:hover,
+    h1:hover,
+    *:hover>h2 {
+        margin: 0 0 0 0;
+        width: 33%;
+        text-align: center;
+        border: 1px black solid;
+        transition: width .7s ease-in-out;
+    }
+
+    .button:hover {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}

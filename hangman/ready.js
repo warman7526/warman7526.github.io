@@ -2,7 +2,7 @@ var q = (e) => document.querySelector(e);
 var url = new URL(window.location.href)
 var path = url.pathname.split("/")
 path.pop()
-var link = url.hostname + path.join("/") + "/play.html?wordid=" + url.searchParams.get("wordid")
+var link = url.protocol + "//" + url.hostname + path.join("/") + "/play.html?wordid=" + url.searchParams.get("wordid")
 
 
 function copyLink() {

@@ -5,11 +5,16 @@ function setCharAt(str, index, chr) {
 }
 var q = (e) => document.querySelector(e);
 
-function copylink() {
-    copy(window.location.href)
-    if (!q("dialog#copylink")) document.body.innerHTML += '<dialog id="copylink">Copied To Clipboard<br><button onclick="this.parentElement.close()">OK</button></dialog>'
-    q("dialog#copylink")
-        .showModal();
+function copylink(prefix = "", useAlert = false) {
+
+    console.log(`${prefix} ${window.location.href}`)
+    copy(`${prefix} ${window.location.href}`)
+    if (useAlert) alert(`${prefix} ${window.location.href}`)
+    else {
+        if (!q("dialog#copylink")) document.body.innerHTML += '<dialog id="copylink">Copied To Clipboard<br><button onclick="this.parentElement.close()">OK</button></dialog>'
+        q("dialog#copylink")
+            .showModal();
+    }
 } function copy(text) {
     if (window.clipboardData && window.clipboardData.setData) {
         // IE: prevent textarea being shown while dialog is visible
@@ -30,7 +35,7 @@ function copylink() {
             console.warn("Copy to clipboard failed.", ex);
             return false;
         } finally {
-            document.body.removeChild(textarea);
+            //document.body.removeChild(textarea);
         }
     }
 }

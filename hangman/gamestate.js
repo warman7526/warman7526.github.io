@@ -12,12 +12,22 @@ class Game {
                 if (this.word[i] == e) {
                     this.display = setCharAt(this.display, i, e)
                 }
-            }; return this.display;
+            };
+            if (this.display == this.word) this.win()
+            return this.display;
         }
         this.wrong = (e) => {
             if (e != "*") this.inccorects.push(e);
             this.guesses--;
+            if (this.guesses == 0) {
+                this.lose()
+            }
         }
         this.getImage = () => "images/" + this.images[this.guesses] + ".png"
+
+        this.win = (e) => {
+            document.body.innerHTML += `<dialog id="win">Congratulations!<br/>You won!<button onclick="window.location.href ='./menu.html' ">Back</button><button onclick="copylink('I got this hangman with only ${this.inccorects} incorrect guesses! Can You do better? Play it here: ',true)">Share</button></dialog>`
+            q("dialog#win").showModal();
+        }
     }
 }
